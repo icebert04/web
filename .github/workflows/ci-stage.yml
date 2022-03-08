@@ -134,7 +134,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./
-          file: ./Dockerfile
+          file: ./Dockerfile-prod
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ steps.compute.outputs.docker_tag }}
@@ -187,7 +187,7 @@ jobs:
           command: up
           stack-name: stage
           upsert: false
-          work-dir: infra/stage
+          work-dir: infra/staging
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
           PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }} 
